@@ -14,6 +14,9 @@
 		D7078D8A1DD9F816006FEC33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7078D881DD9F816006FEC33 /* LaunchScreen.storyboard */; };
 		D7078D951DD9F817006FEC33 /* topViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078D941DD9F817006FEC33 /* topViewTests.swift */; };
 		D7078DA01DD9F817006FEC33 /* topViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078D9F1DD9F817006FEC33 /* topViewUITests.swift */; };
+		D7078E621DDAAB71006FEC33 /* rogNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */; };
+		D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */; };
+		D7078E661DDAAC53006FEC33 /* checkNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		D7078D9B1DD9F817006FEC33 /* topViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = topViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7078D9F1DD9F817006FEC33 /* topViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = topViewUITests.swift; sourceTree = "<group>"; };
 		D7078DA11DD9F817006FEC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNoteViewController.swift; sourceTree = "<group>"; };
+		D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNote2ViewController.swift; sourceTree = "<group>"; };
+		D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +109,9 @@
 				D7078D861DD9F816006FEC33 /* Assets.xcassets */,
 				D7078D881DD9F816006FEC33 /* LaunchScreen.storyboard */,
 				D7078D8B1DD9F816006FEC33 /* Info.plist */,
+				D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */,
+				D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */,
+				D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */,
 			);
 			path = topView;
 			sourceTree = "<group>";
@@ -259,8 +268,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */,
 				D7078D821DD9F816006FEC33 /* ViewController.swift in Sources */,
+				D7078E661DDAAC53006FEC33 /* checkNoteViewController.swift in Sources */,
 				D7078D801DD9F816006FEC33 /* AppDelegate.swift in Sources */,
+				D7078E621DDAAB71006FEC33 /* rogNoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
