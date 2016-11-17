@@ -17,6 +17,9 @@
 		D7078E621DDAAB71006FEC33 /* rogNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */; };
 		D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */; };
 		D7078E661DDAAC53006FEC33 /* checkNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */; };
+		D7078EFC1DDDA1D6006FEC33 /* NoteData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7078EFA1DDDA1D6006FEC33 /* NoteData.xcdatamodeld */; };
+		D7078EFF1DDDA232006FEC33 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078EFD1DDDA232006FEC33 /* Note+CoreDataClass.swift */; };
+		D7078F001DDDA232006FEC33 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078EFE1DDDA232006FEC33 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNoteViewController.swift; sourceTree = "<group>"; };
 		D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNote2ViewController.swift; sourceTree = "<group>"; };
 		D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = checkNoteViewController.swift; sourceTree = "<group>"; };
+		D7078EFB1DDDA1D6006FEC33 /* NoteData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteData.xcdatamodel; sourceTree = "<group>"; };
+		D7078EFD1DDDA232006FEC33 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D7078EFE1DDDA232006FEC33 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 		D7078D731DD9F816006FEC33 = {
 			isa = PBXGroup;
 			children = (
+				D7078EFD1DDDA232006FEC33 /* Note+CoreDataClass.swift */,
+				D7078EFE1DDDA232006FEC33 /* Note+CoreDataProperties.swift */,
 				D7078D7E1DD9F816006FEC33 /* topView */,
 				D7078D931DD9F817006FEC33 /* topViewTests */,
 				D7078D9E1DD9F817006FEC33 /* topViewUITests */,
@@ -112,6 +120,7 @@
 				D7078E611DDAAB71006FEC33 /* rogNoteViewController.swift */,
 				D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */,
 				D7078E651DDAAC53006FEC33 /* checkNoteViewController.swift */,
+				D7078EFA1DDDA1D6006FEC33 /* NoteData.xcdatamodeld */,
 			);
 			path = topView;
 			sourceTree = "<group>";
@@ -269,10 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */,
+				D7078F001DDDA232006FEC33 /* Note+CoreDataProperties.swift in Sources */,
+				D7078EFF1DDDA232006FEC33 /* Note+CoreDataClass.swift in Sources */,
 				D7078D821DD9F816006FEC33 /* ViewController.swift in Sources */,
 				D7078E661DDAAC53006FEC33 /* checkNoteViewController.swift in Sources */,
 				D7078D801DD9F816006FEC33 /* AppDelegate.swift in Sources */,
 				D7078E621DDAAB71006FEC33 /* rogNoteViewController.swift in Sources */,
+				D7078EFC1DDDA1D6006FEC33 /* NoteData.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -517,6 +529,7 @@
 				D7078DA61DD9F817006FEC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7078DA71DD9F817006FEC33 /* Build configuration list for PBXNativeTarget "topViewTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +538,7 @@
 				D7078DA91DD9F817006FEC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D7078DAA1DD9F817006FEC33 /* Build configuration list for PBXNativeTarget "topViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,8 +547,22 @@
 				D7078DAC1DD9F817006FEC33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D7078EFA1DDDA1D6006FEC33 /* NoteData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D7078EFB1DDDA1D6006FEC33 /* NoteData.xcdatamodel */,
+			);
+			currentVersion = D7078EFB1DDDA1D6006FEC33 /* NoteData.xcdatamodel */;
+			path = NoteData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D7078D741DD9F816006FEC33 /* Project object */;
 }

@@ -7,14 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class rogNoteViewController: UIViewController {
+    @IBOutlet weak var myText1: UITextField!
+    @IBOutlet weak var myText2: UITextField!
+    @IBOutlet weak var myText3: UITextField!
+    @IBOutlet weak var myText4: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+//    -------------データの引き渡し↓--------------
+    //        サイトのコードを参考に添付したので、あってるかわからない
+//    var delegate:AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    
+    @IBAction func tapBtn(_ sender: UIButton) {
+        
+
+//        // AppDelegateのmessageに押されたボタンのtagを代入
+//        self.delegate.message = String(sender.tag)
+//        // NavigationControllerを使ったページの遷移
+//        let receiveViewController: ReceiveViewController = ReceiveViewController()
+//        self.navigationController?.pushViewController(receiveViewController, animated: true)
+    }
+    
+//    -------------データ引き渡し↑----------------
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
