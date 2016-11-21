@@ -28,6 +28,32 @@ class rogNote2ViewController: UIViewController {
         myDatePicker2.maximumDate = df.date(from:"3000/12/31")
     }
     
+    @IBAction func changedDate1(_ sender: UIDatePicker) {
+        
+        print(sender.date)
+        
+        var start = myDatePicker1.date as! String
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        myDatePicker1.minimumDate = df.date(from: "0001/01/01")
+        
+        
+      	
+    }
+    
+    @IBAction func changedDate2(_ sender: UIDatePicker) {
+        
+        var end = myDatePicker2.date as! String
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        myDatePicker2.maximumDate = df.date(from:"3000/12/31")
+
+    }
+    
+    
+    
     @IBAction func tapBtn(_ sender: UIButton) {
         
         
@@ -43,47 +69,33 @@ class rogNote2ViewController: UIViewController {
         //        アラートを表示する(重要)
         present(alertController, animated: true, completion: nil)
         
-//        ----------CoreData-----------------------------------
+    
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
         
-        //        前のページの記入項目の内容を引き継ぐ必要あり
-//        var title = myText1.text
-//        var purpose = myText2.text
-//        var good = myText3.text
-//        var bad = myText4.text
-        
-        
-        //        各記入項目の値を変数に入れて、表示。
-        var improvement = myText5.text
+        var improvement =  myText5.text
         var practice = myText6.text
-        var start = myDatePicker1.date
-        var end = myDatePicker1.date
+        var start = df.string(from: myDatePicker1.date)
+        var end = df.string(from: myDatePicker2.date)
         
+        var currentdate = df.string(from: Date())
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
-        let Note = NSEntityDescription.entity(forEntityName: "Note", in: viewContext)
-        let newRecord = NSManagedObject(entity: Note!, insertInto: viewContext)
-        
-//        titleが他と被ってエラーにならないか注意
-//        newRecord.setValue(title, forKey: "title") //値を代入
-//        newRecord.setValue(purpose, forKey: "purpose") //値を代入
-//        newRecord.setValue(good, forKey: "good") //値を代入
-//        newRecord.setValue(bad, forKey: "bad") //値を代入
-        newRecord.setValue(improvement, forKey: "improvement") //値を代入
-        newRecord.setValue(practice, forKey: "practice") //値を代入
+        let tweet = NSEntityDescription.entity(forEntityName: "Note", in: viewContext)
+        let newRecord = NSManagedObject(entity: tweet!, insertInto: viewContext)
+        newRecord.setValue(myText5.text, forKey: "improvement") //値を代入
+        newRecord.setValue(myText6.text, forKey: "practice") //値を代入
         newRecord.setValue(start, forKey: "start") //値を代入
         newRecord.setValue(end, forKey: "end") //値を代入
-        newRecord.setValue(Date(), forKey: "created_at")//値を代入
+        newRecord.setValue(currentdate, forKey: "created_at")//値を代入
         
         do {
             try viewContext.save()
         } catch {
         }
+        
 
-        
-        
-        
-//        ----------------------------------------------
     }
     
     

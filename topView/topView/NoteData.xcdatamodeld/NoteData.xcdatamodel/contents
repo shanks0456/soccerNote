@@ -1,16 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11232" systemVersion="15G1108" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Note" representedClassName=".Note" syncable="YES" codeGenerationType="class">
-        <attribute name="bad" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="end" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="good" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="improvement" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="practice" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="purpose" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="start" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-    </entity>
-    <elements>
-        <element name="Note" positionX="-27" positionY="18" width="128" height="165"/>
-    </elements>
+    <elements/>
 </model>
