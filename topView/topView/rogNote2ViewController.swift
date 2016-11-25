@@ -10,6 +10,11 @@ import UIKit
 import CoreData
 
 class rogNote2ViewController: UIViewController {
+    
+    @IBOutlet weak var myText1: UITextField!
+    @IBOutlet weak var myText2: UITextField!
+    @IBOutlet weak var myText3: UITextField!
+    @IBOutlet weak var myText4: UITextField!
     @IBOutlet weak var myText5: UITextField!
     @IBOutlet weak var myText6: UITextField!
     @IBOutlet weak var myDatePicker1: UIDatePicker!
@@ -18,9 +23,7 @@ class rogNote2ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
-        //        フォーマットをyyyy/MM/ddに変更
+                //        フォーマットをyyyy/MM/ddに変更
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         
@@ -30,25 +33,23 @@ class rogNote2ViewController: UIViewController {
     
     @IBAction func changedDate1(_ sender: UIDatePicker) {
         
-        print(sender.date)
-        
-        var start = myDatePicker1.date as! String
-        
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        myDatePicker1.minimumDate = df.date(from: "0001/01/01")
-        
-        
-      	
+        var start = df.string(from:myDatePicker1.date)
+
     }
     
     @IBAction func changedDate2(_ sender: UIDatePicker) {
         
-        var end = myDatePicker2.date as! String
+//        var end = myDatePicker2.date as! String
+//        
+//        let df = DateFormatter()
+//        df.dateFormat = "yyyy/MM/dd"
+//        myDatePicker2.maximumDate = df.date(from:"3000/12/31")
         
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        myDatePicker2.maximumDate = df.date(from:"3000/12/31")
+        var end = df.string(from:myDatePicker2.date)
 
     }
     
@@ -73,22 +74,33 @@ class rogNote2ViewController: UIViewController {
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         
+        
+        var title = myText1.text
+        var purpose = myText2.text
+        var good = myText3.text
+        var bad = myText4.text
         var improvement =  myText5.text
         var practice = myText6.text
         var start = df.string(from: myDatePicker1.date)
         var end = df.string(from: myDatePicker2.date)
         
-        var currentdate = df.string(from: Date())
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
         let tweet = NSEntityDescription.entity(forEntityName: "Note", in: viewContext)
         let newRecord = NSManagedObject(entity: tweet!, insertInto: viewContext)
+        
+        
+        
+        newRecord.setValue(myText1.text, forKey: "title") //値を代入
+        newRecord.setValue(myText2.text, forKey: "purpose") //値を代入
+        newRecord.setValue(myText3.text, forKey: "good") //値を代入
+        newRecord.setValue(myText4.text, forKey: "bad") //値を代入
         newRecord.setValue(myText5.text, forKey: "improvement") //値を代入
         newRecord.setValue(myText6.text, forKey: "practice") //値を代入
         newRecord.setValue(start, forKey: "start") //値を代入
         newRecord.setValue(end, forKey: "end") //値を代入
-        newRecord.setValue(currentdate, forKey: "created_at")//値を代入
+        newRecord.setValue(Date(), forKey: "created_at")//値を代入
         
         do {
             try viewContext.save()
