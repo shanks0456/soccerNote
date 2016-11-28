@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
-class noteListViewController: UIViewController {
+class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var myTableView: UITableView!
+    
+    var selectedIndex = -1
     
     
     //    ノート配列の用意
@@ -27,53 +31,42 @@ class noteListViewController: UIViewController {
                 let fetchResults = try viewContext.fetch(query)
                 for result: AnyObject in fetchResults {
                     
-                    let body: String? = result.value(forKey: "body") as? String
+                    let title: String? = result.value(forKey: "title") as? String
+                    let purpose: String? = result.value(forKey: "purpose") as? String
+                    let good: String? = result.value(forKey: "good") as? String
+                    let bad: String? = result.value(forKey: "bad") as? String
+                    let improvement: String? = result.value(forKey: "improvement") as? String
+                    let practice: String? = result.value(forKey: "practice") as? String
+
+                    let start: String? = result.value(forKey: "start") as? String
+                    let end: String? = result.value(forKey: "end") as? String
+
                     let created_at: Date? = result.value(forKey: "created_at") as? Date
                     
                     //                実際にprintで表示
-                    print(body)
-                    print(created_at)
+//                    print(title)
+//                    print(purpose)
+//                    print(good)
+//                    print(bad)
+//                    print(improvement)
+//                    print(start)
+//                    print(end)
+//                    
+//                    print(created_at)
                     //                配列に追加してtabelも表示ていく
+                    
+                    noteList.add(
+                        ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
                     
                     
                 }
             } catch {
             }
-
-        
-//        ノートデータを配列に代入
-        
-        noteList =
-            [["title":"title1","date":"2016-05-13","category":"cebu","note":"ノート1"],
-             ["title":"title2","date":"2016-05-14","category":"cebu","note":"ノート2"],
-             ["title":"title3","date":"2016-05-15","category":"cebu","note":"ノート3"]]
-        
-        
-        
-        
-        //        UserDefaultから保存した配列を取り出す
-        var myDefault = UserDefaults.standard
-        
-        //                UserDefaultを全削除する
-        var appDomain:String = Bundle.main.bundleIdentifier!
-        myDefault.removePersistentDomain(forName: appDomain)
-        
-        //        蓄積されたデータがあったら
-        //        =の周りは空けないと=として認識されない
-        if (myDefault.object(forKey: "noteList") != nil){
-            //        データを取り出して、noteListを更新
-            noteList = myDefault.object(forKey: "noteList") as!NSMutableArray
-            
-            //            一つの文法に途中で改行を入れるとエラーが出るので気をつける
-            
-            var noteListTmp:NSMutableArray = myDefault.object(forKey:"noteList") as!NSMutableArray
-            noteList = noteListTmp.mutableCopy() as!NSMutableArray
-        }
-        
-        print(noteList)
     }
     
-    //    行数を決定
+    
+    
+    
     
     //    行数を決定
     func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
@@ -90,7 +83,9 @@ class noteListViewController: UIViewController {
         var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
         
         //        日付を取得し代入
-        var noteDate = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["date"] as! String
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        var noteDate = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
         
         //        表示の文字を設定
         cell.textLabel?.text = "\(noteDate) \(title)"
@@ -99,11 +94,72 @@ class noteListViewController: UIViewController {
         
     }
     
+//    ---------------↓-----------------------------
+    
+//        選択された時に行う処理
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            print("\((indexPath as! NSIndexPath).row)行目を選択")
+            //        選択された行番号をメンバ変数に保存
+            selectedIndex = (indexPath as NSIndexPath).row
+    
+            performSegue(withIdentifier: "secondSegue", sender: nil)
+        }
+    
+        override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+            //        ここに、次の画面へ渡すデータの代入処理を記述
+            let secondVC = segue.destination as! noteCheckViewController
+            secondVC.scSelectedIndex = selectedIndex
+            
+            
+            
+        }
+
+//    ---------------↑---------------------------
+    
     //Bar Button Itemの中の"追加アイテム"自体をactionとして記述する必要がある！！
     @IBAction func tapAddBtn(_ sender: UIButton) {
+        
         performSegue(withIdentifier: "addSegue", sender: nil)
         
+        
+        
     }
+    
+    
+//    --------------------------------------------
+    
+//    
+//    //    行数を決定
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
+//        return 20
+//    }
+//    
+//    //    表示するデータの中身
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell{
+//        let cell = UITableViewCell(style: .default, reuseIdentifier:"myCell")
+//        cell.textLabel?.text = "\((indexPath as! NSIndexPath).row)行目"
+//        return cell
+//    }
+//    
+//    
+//    
+//    //    選択された時に行う処理
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        print("\((indexPath as! NSIndexPath).row)行目を選択")
+//        //        選択された行番号をメンバ変数に保存
+//        selectedIndex = (indexPath as NSIndexPath).row
+//        
+//        performSegue(withIdentifier: "secondSegue", sender: nil)
+//    }
+//    
+//    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+//        //        ここに、次の画面へ渡すデータの代入処理を記述
+//        let secondVC = segue.destination as! secondViewController
+//        secondVC.scSelectedIndex = selectedIndex
+//    }
+
+    
+//    ------------------------------------------------
     
     //    戻ってきた時
     @IBAction func returnMenu(segue:UIStoryboardSegue){

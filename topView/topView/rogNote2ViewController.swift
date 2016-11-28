@@ -27,8 +27,8 @@ class rogNote2ViewController: UIViewController {
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
         
-        myDatePicker1.minimumDate = df.date(from: "0001/01/01")
-        myDatePicker2.maximumDate = df.date(from:"3000/12/31")
+        myDatePicker1.minimumDate = df.date(from: "2016/01/01")
+        myDatePicker2.maximumDate = df.date(from:"2050/12/30")
     }
     
     @IBAction func changedDate1(_ sender: UIDatePicker) {
@@ -87,8 +87,8 @@ class rogNote2ViewController: UIViewController {
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let viewContext = appDelegate.persistentContainer.viewContext
-        let tweet = NSEntityDescription.entity(forEntityName: "Note", in: viewContext)
-        let newRecord = NSManagedObject(entity: tweet!, insertInto: viewContext)
+        let Note = NSEntityDescription.entity(forEntityName: "Note", in: viewContext)
+        let newRecord = NSManagedObject(entity: Note!, insertInto: viewContext)
         
         
         

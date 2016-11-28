@@ -16,7 +16,11 @@
 		D7078DA01DD9F817006FEC33 /* topViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078D9F1DD9F817006FEC33 /* topViewUITests.swift */; };
 		D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */; };
 		D7078F7E1DDEA62E006FEC33 /* myData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7078F7C1DDEA62E006FEC33 /* myData.xcdatamodeld */; };
+		D756EED31DEBC92900DCEC1F /* improvementListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */; };
+		D756EED51DEBD78B00DCEC1F /* noteCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */; };
 		D7D3DD291DE7E4D2004E5671 /* noteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD281DE7E4D2004E5671 /* noteListViewController.swift */; };
+		D7D3DD2C1DE7EBB6004E5671 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD2A1DE7EBB6004E5671 /* Note+CoreDataClass.swift */; };
+		D7D3DD2D1DE7EBB6004E5671 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD2B1DE7EBB6004E5671 /* Note+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +56,11 @@
 		D7078DA11DD9F817006FEC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNote2ViewController.swift; sourceTree = "<group>"; };
 		D7078F7D1DDEA62E006FEC33 /* myData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myData.xcdatamodel; sourceTree = "<group>"; };
+		D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = improvementListViewController.swift; sourceTree = "<group>"; };
+		D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noteCheckViewController.swift; sourceTree = "<group>"; };
 		D7D3DD281DE7E4D2004E5671 /* noteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noteListViewController.swift; sourceTree = "<group>"; };
+		D7D3DD2A1DE7EBB6004E5671 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D7D3DD2B1DE7EBB6004E5671 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,15 +111,19 @@
 		D7078D7E1DD9F816006FEC33 /* topView */ = {
 			isa = PBXGroup;
 			children = (
+				D7D3DD2A1DE7EBB6004E5671 /* Note+CoreDataClass.swift */,
+				D7D3DD2B1DE7EBB6004E5671 /* Note+CoreDataProperties.swift */,
 				D7078D7F1DD9F816006FEC33 /* AppDelegate.swift */,
 				D7078D811DD9F816006FEC33 /* ViewController.swift */,
 				D7078D831DD9F816006FEC33 /* Main.storyboard */,
 				D7078D861DD9F816006FEC33 /* Assets.xcassets */,
 				D7078D881DD9F816006FEC33 /* LaunchScreen.storyboard */,
 				D7078D8B1DD9F816006FEC33 /* Info.plist */,
-				D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */,
 				D7078F7C1DDEA62E006FEC33 /* myData.xcdatamodeld */,
+				D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */,
 				D7D3DD281DE7E4D2004E5671 /* noteListViewController.swift */,
+				D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */,
+				D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */,
 			);
 			path = topView;
 			sourceTree = "<group>";
@@ -269,10 +281,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D3DD291DE7E4D2004E5671 /* noteListViewController.swift in Sources */,
+				D7D3DD2D1DE7EBB6004E5671 /* Note+CoreDataProperties.swift in Sources */,
 				D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */,
 				D7078D821DD9F816006FEC33 /* ViewController.swift in Sources */,
+				D756EED51DEBD78B00DCEC1F /* noteCheckViewController.swift in Sources */,
+				D7D3DD2C1DE7EBB6004E5671 /* Note+CoreDataClass.swift in Sources */,
 				D7078D801DD9F816006FEC33 /* AppDelegate.swift in Sources */,
 				D7078F7E1DDEA62E006FEC33 /* myData.xcdatamodeld in Sources */,
+				D756EED31DEBC92900DCEC1F /* improvementListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
