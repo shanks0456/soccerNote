@@ -14,6 +14,8 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var selectedIndex = -1
     
+    var noteCheck = NSMutableArray()
+    
     
     //    ノート配列の用意
     var noteList = NSMutableArray()
@@ -89,8 +91,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         //        表示の文字を設定
         cell.textLabel?.text = "\(noteDate) \(title)"
-        
-        return cell
+                return cell
         
     }
     
@@ -101,6 +102,50 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             print("\((indexPath as! NSIndexPath).row)行目を選択")
             //        選択された行番号をメンバ変数に保存
             selectedIndex = (indexPath as NSIndexPath).row
+            
+            
+            //        -----------詳細ページにデータを送るための変数を作る---------------------------
+            var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
+            
+            var purpose = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["purpose"] as! String
+            
+            var good = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["good"] as! String
+            
+            var bad = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["bad"] as! String
+            
+            var improvement = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["improvement"] as! String
+            
+            var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
+            
+            //
+            //
+            //        let df = DateFormatter()
+            //        df.dateFormat = "yyyy/MM/dd"
+            //        var start = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["start"] as! Date)
+            //
+            //        let df = DateFormatter()
+            //        df.dateFormat = "yyyy/MM/dd"
+            //        var end = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["end"] as! Date)
+            //
+            
+            //                        実際にprintで表示
+            print(title)
+            print(purpose)
+            print(good)
+            print(bad)
+            print(improvement)
+            //        print(start)
+            //        print(end)
+            
+            
+            noteCheck.add(
+                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice])
+            
+            print(noteCheck)
+            
+            //        -------------------------------
+            
+
     
             performSegue(withIdentifier: "secondSegue", sender: nil)
         }
@@ -109,8 +154,11 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             //        ここに、次の画面へ渡すデータの代入処理を記述
             let secondVC = segue.destination as! noteCheckViewController
             secondVC.scSelectedIndex = selectedIndex
+
+            secondVC.noteCheck = noteCheck
             
             
+
             
         }
 
@@ -125,41 +173,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-    
-//    --------------------------------------------
-    
-//    
-//    //    行数を決定
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection: Int) -> Int {
-//        return 20
-//    }
-//    
-//    //    表示するデータの中身
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath:IndexPath) -> UITableViewCell{
-//        let cell = UITableViewCell(style: .default, reuseIdentifier:"myCell")
-//        cell.textLabel?.text = "\((indexPath as! NSIndexPath).row)行目"
-//        return cell
-//    }
-//    
-//    
-//    
-//    //    選択された時に行う処理
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("\((indexPath as! NSIndexPath).row)行目を選択")
-//        //        選択された行番号をメンバ変数に保存
-//        selectedIndex = (indexPath as NSIndexPath).row
-//        
-//        performSegue(withIdentifier: "secondSegue", sender: nil)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
-//        //        ここに、次の画面へ渡すデータの代入処理を記述
-//        let secondVC = segue.destination as! secondViewController
-//        secondVC.scSelectedIndex = selectedIndex
-//    }
 
-    
-//    ------------------------------------------------
     
     //    戻ってきた時
     @IBAction func returnMenu(segue:UIStoryboardSegue){
