@@ -11,7 +11,7 @@ import UIKit
 class noteCheckViewController: UIViewController {
     
     var scSelectedIndex = -1
-    var noteCheck = NSMutableArray()
+    var noteCheck = NSDictionary()
 
     @IBOutlet weak var myTitle: UITextField!
     @IBOutlet weak var myPurpose: UITextField!
@@ -29,21 +29,17 @@ class noteCheckViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    
-    
-//    @IBAction func titleText(_ sender: UITextField) {
-//        print(noteCheck["titleCheck"])
-//    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        一覧で指定された番号をもとにcoredataから情報を取得
         
         
-        print(noteCheck)
-
-        
-        
+        myTitle.text = noteCheck["titleCheck"] as! String
+        myPurpose.text = noteCheck["purposeCheck"] as! String
+        myGood.text = noteCheck["goodCheck"] as! String
+        myBad.text = noteCheck["badCheck"] as! String
+        myImprovement.text = noteCheck["improvementCheck"] as! String
+        myPractice.text = noteCheck["practiceCheck"] as! String
         
     }
     

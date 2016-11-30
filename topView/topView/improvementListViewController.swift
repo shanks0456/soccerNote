@@ -12,6 +12,10 @@ import CoreData
 class improvementListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     @IBOutlet weak var myTableView: UITableView!
     
+    var selectedIndex = -1
+    var resultCheck:String = ""
+
+    
     
     
     //    ノート配列の用意
@@ -101,6 +105,41 @@ class improvementListViewController: UIViewController,UITableViewDelegate,UITabl
         return cell
         
     }
+    
+    
+//    ----------------------------------
+    
+    
+    
+    //        選択された時に行う処理
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("\((indexPath as! NSIndexPath).row)行目を選択")
+        //        選択された行番号をメンバ変数に保存
+        selectedIndex = (indexPath as NSIndexPath).row
+        
+        resultCheck = (improvementList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
+        
+        performSegue(withIdentifier: "thirdSegue", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender:Any?){
+        //        ここに、次の画面へ渡すデータの代入処理を記述
+        let secondVC = segue.destination as! improvementCheckViewController
+        secondVC.scSelectedIndex = selectedIndex
+        
+        secondVC.resultCheck = resultCheck
+        
+        
+        
+        
+    }
+    
+
+    
+//    -------------------------------------
+    
+    
+    
     
     //Bar Button Itemの中の"追加アイテム"自体をactionとして記述する必要がある！！
     @IBAction func tapAddBtn(_ sender: UIButton) {

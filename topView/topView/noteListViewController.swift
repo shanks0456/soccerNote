@@ -14,7 +14,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     var selectedIndex = -1
     
-    var noteCheck = NSMutableArray()
+    var noteCheck = NSDictionary()
     
     
     //    ノート配列の用意
@@ -95,7 +95,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
     }
     
-//    ---------------↓-----------------------------
+
     
 //        選択された時に行う処理
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -103,8 +103,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             //        選択された行番号をメンバ変数に保存
             selectedIndex = (indexPath as NSIndexPath).row
             
-            
-            //        -----------詳細ページにデータを送るための変数を作る---------------------------
+          
             var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
             
             var purpose = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["purpose"] as! String
@@ -129,23 +128,20 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             //
             
             //                        実際にprintで表示
-            print(title)
-            print(purpose)
-            print(good)
-            print(bad)
-            print(improvement)
+//            print(title)
+//            print(purpose)
+//            print(good)
+//            print(bad)
+//            print(improvement)
             //        print(start)
             //        print(end)
             
             
-            noteCheck.add(
-                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice])
+            noteCheck =
+                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice]
             
-            print(noteCheck)
+//            print(noteCheck)
             
-            //        -------------------------------
-            
-
     
             performSegue(withIdentifier: "secondSegue", sender: nil)
         }
@@ -162,8 +158,6 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
         }
 
-//    ---------------↑---------------------------
-    
     //Bar Button Itemの中の"追加アイテム"自体をactionとして記述する必要がある！！
     @IBAction func tapAddBtn(_ sender: UIButton) {
         
