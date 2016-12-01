@@ -116,6 +116,8 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
             
+            var created_at = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! Date
+
             //
             //
             //        let df = DateFormatter()
@@ -138,7 +140,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             
             noteCheck =
-                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice]
+                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
             
 //            print(noteCheck)
             

@@ -19,6 +19,7 @@
 		D756EED31DEBC92900DCEC1F /* improvementListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */; };
 		D756EED51DEBD78B00DCEC1F /* noteCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */; };
 		D756EED91DEEF19A00DCEC1F /* improvementCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */; };
+		D756EEDB1DEFB97D00DCEC1F /* evaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EEDA1DEFB97D00DCEC1F /* evaluationViewController.swift */; };
 		D7D3DD291DE7E4D2004E5671 /* noteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD281DE7E4D2004E5671 /* noteListViewController.swift */; };
 		D7D3DD2C1DE7EBB6004E5671 /* Note+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD2A1DE7EBB6004E5671 /* Note+CoreDataClass.swift */; };
 		D7D3DD2D1DE7EBB6004E5671 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D3DD2B1DE7EBB6004E5671 /* Note+CoreDataProperties.swift */; };
@@ -60,6 +61,7 @@
 		D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = improvementListViewController.swift; sourceTree = "<group>"; };
 		D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noteCheckViewController.swift; sourceTree = "<group>"; };
 		D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = improvementCheckViewController.swift; sourceTree = "<group>"; };
+		D756EEDA1DEFB97D00DCEC1F /* evaluationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = evaluationViewController.swift; sourceTree = "<group>"; };
 		D7D3DD281DE7E4D2004E5671 /* noteListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noteListViewController.swift; sourceTree = "<group>"; };
 		D7D3DD2A1DE7EBB6004E5671 /* Note+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D7D3DD2B1DE7EBB6004E5671 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */,
 				D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */,
 				D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */,
+				D756EEDA1DEFB97D00DCEC1F /* evaluationViewController.swift */,
 			);
 			path = topView;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D756EEDB1DEFB97D00DCEC1F /* evaluationViewController.swift in Sources */,
 				D7D3DD291DE7E4D2004E5671 /* noteListViewController.swift in Sources */,
 				D7D3DD2D1DE7EBB6004E5671 /* Note+CoreDataProperties.swift in Sources */,
 				D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */,

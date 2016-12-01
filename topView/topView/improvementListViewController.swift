@@ -106,11 +106,6 @@ class improvementListViewController: UIViewController,UITableViewDelegate,UITabl
         
     }
     
-    
-//    ----------------------------------
-    
-    
-    
     //        選択された時に行う処理
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("\((indexPath as! NSIndexPath).row)行目を選択")
@@ -128,17 +123,11 @@ class improvementListViewController: UIViewController,UITableViewDelegate,UITabl
         secondVC.scSelectedIndex = selectedIndex
         
         secondVC.resultCheck = resultCheck
-        
-        
-        
+
         
     }
     
 
-    
-//    -------------------------------------
-    
-    
     
     
     //Bar Button Itemの中の"追加アイテム"自体をactionとして記述する必要がある！！
