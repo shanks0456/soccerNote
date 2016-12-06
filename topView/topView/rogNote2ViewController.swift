@@ -12,6 +12,7 @@ import CoreData
 class rogNote2ViewController: UIViewController {
     
     @IBOutlet weak var myText1: UITextField!
+    
     @IBOutlet weak var myText2: UITextField!
     @IBOutlet weak var myText3: UITextField!
     @IBOutlet weak var myText4: UITextField!
