@@ -37,7 +37,7 @@ class noteCheckViewController: UIViewController {
 
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        var created_atEdit = df.string(from:noteCheck["created_atCheck"] as! Date)
+        var created_atEdit = noteCheck["created_atCheck"] as! String
         
         myTitle.text = noteCheck["titleCheck"] as! String
         myPurpose.text = noteCheck["purposeCheck"] as! String
@@ -54,6 +54,26 @@ class noteCheckViewController: UIViewController {
         print(noteCheck)
         
     }
+    
+//    編集機能参考
+//    
+//    var df = DateFormatter()
+//    df.dateFormat = "yyyy/MM/dd hh:mm:ss +0000"
+//    df.timeZone = TimeZone.current
+//    //保存していた日付を文字列からDate型に変換
+//    var savedDateTime:NSDate = df.date(from: "\(myAp.myCount)") as! NSDate
+//    
+//    print(savedDateTime)
+//    
+//    
+//    //検索条件として指定
+//    let predicate = NSPredicate(format: "SELF.created_at = %@", savedDateTime )
+//    query.predicate = predicate
+//    
+//    
+//    do {
+//    let fetchResults = try viewContext.fetch(query)
+//    
     
 //    ------------↓編集機能--------------------
     
@@ -74,7 +94,7 @@ class noteCheckViewController: UIViewController {
         
 //        createとtitleで検索して取ってくる
         
-//        --------------
+//        〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
 //        
 //        var request = NSFetchRequest(entityName: "Answers")
 //        request.returnsObjectsAsFaults = false;
@@ -88,18 +108,31 @@ class noteCheckViewController: UIViewController {
         
 //        ＾＾＾＾＾＾＾＾＾＾＾＾＾＾＾＾
 //        let fetchRequest: NSFetchRequest<Staff> = Staff.fetchRequest()
+        print(noteCheck["created_atCheck"])
+        
+        let df = DateFormatter()
+        df.dateFormat = "yyyy/MM/dd"
+        var created_atEditDate:NSDate = df.date(from: noteCheck["created_atCheck"] as! String ) as! NSDate
+        
+        
         
         if viewContext != nil {
             request.predicate = NSPredicate(format: "title = %@", titleEdit!)
-            request.predicate = NSPredicate(format: "created_at = %@", created_atEdit!) 
+            request.predicate = NSPredicate(format: "created_at = %@", created_atEditDate )
         }
-
         
+//        ======================================
+        
+        //検索条件として指定
+//            let titkeserch = NSPredicate(format: "title = %@", titleEdit! )
+//            let timeserch = NSPredicate(format: "SELF.created_at = %@", savedDateTime )
+//            query.predicate = predicate
+
     
         
 //        ＾＾＾＾＾＾＾＾＾＾＾＾＾＾
         
-//        ------------
+//        〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜〜
         
         
          do {

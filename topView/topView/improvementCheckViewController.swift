@@ -28,6 +28,22 @@ class improvementCheckViewController: UIViewController {
                 myLabel.text = resultCheck as! String
         
     }
+    
+    @IBAction func tapBtn1(_ sender: UISwitch) {
+        var a = 1
+    }
+    
+    @IBAction func tapBtn2(_ sender: UISwitch) {
+        var b = 2
+    }
+    
+    @IBAction func tapBtn(_ sender: UISwitch) {
+        var c = 3
+    }
+    
+    @IBAction func tapBtn4(_ sender: UIButton) {
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

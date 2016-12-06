@@ -103,7 +103,14 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             //        選択された行番号をメンバ変数に保存
             selectedIndex = (indexPath as NSIndexPath).row
             
-          
+            let df = DateFormatter()
+            df.dateFormat = "yyyy/MM/dd"
+            var created_at = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
+            //var created_at = ""
+            
+
+//        print((noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
+            
             var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
             
             var purpose = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["purpose"] as! String
@@ -116,7 +123,6 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
             
-            var created_at = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! Date
 
             //
             //
