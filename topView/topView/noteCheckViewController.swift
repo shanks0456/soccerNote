@@ -114,7 +114,17 @@ class noteCheckViewController: UIViewController {
         let df = DateFormatter()
 //        df.dateFormat = "yyyy/MM/dd"
         df.dateFormat = "yyyy/MM/dd hh:mm:ss"
+        df.timeZone = TimeZone.current
         var created_atEditDate:NSDate = df.date(from: noteCheck["created_atCheck"] as! String ) as! NSDate
+        
+//        var df = DateFormatter()
+        //    df.dateFormat = "yyyy/MM/dd hh:mm:ss +0000"
+        //    df.timeZone = TimeZone.current
+        //    //保存していた日付を文字列からDate型に変換
+        //    var savedDateTime:NSDate = df.date(from: "\(myAp.myCount)") as! NSDate
+        //
+        //    print(savedDateTime)
+
         
         
         
