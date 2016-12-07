@@ -74,12 +74,10 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         df.timeZone = TimeZone.current
          var noteDate = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
-    
-        var changeDate = df.date(from: noteDate)!
 
         
         //        表示の文字を設定
-        cell.textLabel?.text = "\(title)　\(changeDate)"
+        cell.textLabel?.text = "\(title)　\(noteDate)"
                 return cell
         
     }
@@ -92,7 +90,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             selectedIndex = (indexPath as NSIndexPath).row
             
             let df = DateFormatter()
-            df.dateFormat = "yyyy/MM/dd hh:mm:ss"
+            df.dateFormat = "yyyy/MM/dd"
             df.timeZone = TimeZone.current
             var created_at = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
             //var created_at = ""
