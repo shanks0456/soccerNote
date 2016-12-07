@@ -93,6 +93,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             let df = DateFormatter()
             df.dateFormat = "yyyy/MM/dd hh:mm:ss"
+            df.timeZone = TimeZone.current
             var created_at = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
             //var created_at = ""
             

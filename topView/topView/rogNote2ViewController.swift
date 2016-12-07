@@ -5,7 +5,7 @@
 //  Created by 鈴木健人 on 2016/11/15.
 //  Copyright © 2016年 Kento Suzuki. All rights reserved.
 //
-//-----------------------------
+//--------------カメラのサンプルアプリのコードを参考---------------
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        
@@ -273,8 +273,6 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
 //        ----上の続きでタイムゾーンの設定-----
 //        newRecord.setValue(Date(), forKey: "created_at")//値を代入
         newRecord.setValue(changeDate, forKey: "created_at")
-        
-
         
 //        --------------
         
