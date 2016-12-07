@@ -89,6 +89,7 @@ class improvementListViewController: UIViewController,UITableViewDelegate,UITabl
         
 //                日付を取得し代入
         let df = DateFormatter()
+//        タイムゾーン関連で問題ありかも
         df.dateFormat = "MM/dd"
         var noteDate = df.string(from:(improvementList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
         

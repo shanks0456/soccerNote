@@ -36,7 +36,8 @@ class noteCheckViewController: UIViewController {
 //        一覧で指定された番号をもとにcoredataから情報を取得
 
         let df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
+//        df.dateFormat = "yyyy/MM/dd"
+        df.dateFormat = "yyyy/MM/dd hh:mm:ss"
         var created_atEdit = noteCheck["created_atCheck"] as! String
         
         myTitle.text = noteCheck["titleCheck"] as! String
@@ -111,7 +112,8 @@ class noteCheckViewController: UIViewController {
         print(noteCheck["created_atCheck"])
         
         let df = DateFormatter()
-        df.dateFormat = "yyyy/MM/dd"
+//        df.dateFormat = "yyyy/MM/dd"
+        df.dateFormat = "yyyy/MM/dd hh:mm:ss"
         var created_atEditDate:NSDate = df.date(from: noteCheck["created_atCheck"] as! String ) as! NSDate
         
         

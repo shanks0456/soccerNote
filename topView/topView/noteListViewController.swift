@@ -84,13 +84,37 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //        タイトルを取得し代入
         var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
         
+        
+//        ----------タイムゾーンの改善---------------------
         //        日付を取得し代入
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-        var noteDate = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
+//        ---------------
+        df.timeZone = TimeZone.current
+         var noteDate = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
+    
+        var changeDate = df.date(from: noteDate)!
+
+//                ↓つながりわからん
+
+       
+        
+//        let created2 = DateFormatter()
+//        created2.dateFormat = "yyyy/MM/dd hh:mm:ss"
+//        created2.timeZone = TimeZone.current
+//        
+//        var strDateTmp = created2.string(from: Date())
+//        var changeDate = created2.date(from: strDateTmp)
+//        
+//        //coreDataに設定
+//        newRecord.setValue(changeDate, forKey: "created_at")
+        
+        
+        
+//        ---------------------------
         
         //        表示の文字を設定
-        cell.textLabel?.text = "\(noteDate) \(title)"
+        cell.textLabel?.text = "\(changeDate) \(title)"
                 return cell
         
     }
@@ -104,7 +128,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             selectedIndex = (indexPath as NSIndexPath).row
             
             let df = DateFormatter()
-            df.dateFormat = "yyyy/MM/dd"
+            df.dateFormat = "yyyy/MM/dd hh:mm:ss"
             var created_at = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
             //var created_at = ""
             

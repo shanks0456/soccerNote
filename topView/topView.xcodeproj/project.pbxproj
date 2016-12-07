@@ -220,6 +220,7 @@
 				TargetAttributes = {
 					D7078D7B1DD9F816006FEC33 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KF7VQAKZ54;
 						ProvisioningStyle = Automatic;
 					};
 					D7078D8F1DD9F817006FEC33 = {
@@ -448,7 +449,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KF7VQAKZ54;
 				INFOPLIST_FILE = topView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kentosuzuki.topView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,7 +463,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KF7VQAKZ54;
 				INFOPLIST_FILE = topView/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kentosuzuki.topView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
