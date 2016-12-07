@@ -45,29 +45,13 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
                     let created_at: Date? = result.value(forKey: "created_at") as? Date
                     
-                    //                実際にprintで表示
-//                    print(title)
-//                    print(purpose)
-//                    print(good)
-//                    print(bad)
-//                    print(improvement)
-//                    print(start)
-//                    print(end)
-//                    
-//                    print(created_at)
-                    //                配列に追加してtabelも表示ていく
-                    
                     noteList.add(
                         ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
-                    
                     
                 }
             } catch {
             }
     }
-    
-    
-    
     
     
     //    行数を決定
@@ -84,42 +68,22 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         //        タイトルを取得し代入
         var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
         
-        
-//        ----------タイムゾーンの改善---------------------
-        //        日付を取得し代入
+                //        日付を取得し代入
         let df = DateFormatter()
         df.dateFormat = "yyyy/MM/dd"
-//        ---------------
+        
         df.timeZone = TimeZone.current
          var noteDate = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["created_at"] as! Date)
     
         var changeDate = df.date(from: noteDate)!
 
-//                ↓つながりわからん
-
-       
-        
-//        let created2 = DateFormatter()
-//        created2.dateFormat = "yyyy/MM/dd hh:mm:ss"
-//        created2.timeZone = TimeZone.current
-//        
-//        var strDateTmp = created2.string(from: Date())
-//        var changeDate = created2.date(from: strDateTmp)
-//        
-//        //coreDataに設定
-//        newRecord.setValue(changeDate, forKey: "created_at")
-        
-        
-        
-//        ---------------------------
         
         //        表示の文字を設定
-        cell.textLabel?.text = "\(changeDate) \(title)"
+        cell.textLabel?.text = "\(title)　\(changeDate)"
                 return cell
         
     }
-    
-
+  
     
 //        選択された時に行う処理
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -146,29 +110,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             var improvement = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["improvement"] as! String
             
             var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
-            
 
-            //
-            //
-            //        let df = DateFormatter()
-            //        df.dateFormat = "yyyy/MM/dd"
-            //        var start = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["start"] as! Date)
-            //
-            //        let df = DateFormatter()
-            //        df.dateFormat = "yyyy/MM/dd"
-            //        var end = df.string(from:(noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["end"] as! Date)
-            //
-            
-            //                        実際にprintで表示
-//            print(title)
-//            print(purpose)
-//            print(good)
-//            print(bad)
-//            print(improvement)
-            //        print(start)
-            //        print(end)
-            
-            
             noteCheck =
                 ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
             
@@ -195,17 +137,12 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
         
         performSegue(withIdentifier: "addSegue", sender: nil)
         
-        
-        
     }
-    
-
     
     //    戻ってきた時
     @IBAction func returnMenu(segue:UIStoryboardSegue){
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
