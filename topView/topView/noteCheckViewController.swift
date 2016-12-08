@@ -15,13 +15,22 @@ class noteCheckViewController: UIViewController {
     var noteCheck = NSDictionary()
 
     @IBOutlet weak var myTitle: UITextField!
+//    カメラもあとでここに入る
     @IBOutlet weak var myPurpose: UITextField!
     @IBOutlet weak var myGood: UITextField!
     @IBOutlet weak var myBad: UITextField!
     @IBOutlet weak var myImprovement: UITextField!
     @IBOutlet weak var myPractice: UITextField!
-    
     @IBOutlet weak var myCreated_at: UILabel!
+    
+    
+//    @IBOutlet weak var myTitle: UITextField!
+//    @IBOutlet weak var myPurpose: UITextField!
+//    @IBOutlet weak var myGood: UITextField!
+//    @IBOutlet weak var myBad: UITextField!
+//    @IBOutlet weak var myImprovement: UITextField!
+//    @IBOutlet weak var myPractice: UITextField!
+//    @IBOutlet weak var myCreated_at: UILabel!
     
 
     
