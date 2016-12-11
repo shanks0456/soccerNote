@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class noteCheckViewController: UIViewController {
+class noteCheckViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var myImageView: UIImageView!
     
     var scSelectedIndex = -1
@@ -41,7 +41,22 @@ class noteCheckViewController: UIViewController {
         myImageView.image = UIImage(named:"002.jpg")
 
         // Do any additional setup after loading the view.
-    }
+        
+    //        ----キーボード非表示------
+    myTitle.delegate = self
+    myPurpose.delegate = self
+    myGood.delegate = self
+    myBad.delegate = self
+    myImprovement.delegate = self
+    myPractice.delegate = self
+    
+}
+
+func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    textField.resignFirstResponder()
+    return true
+}
+//    ------------↑------------
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

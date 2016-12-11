@@ -76,7 +76,7 @@ import CoreData
 
 //class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
-class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 //    上二つは付け足し
     
     @IBOutlet weak var myImageView: UIImageView!
@@ -106,7 +106,25 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         
         myDatePicker1.minimumDate = df.date(from: "2016/01/01")
         myDatePicker2.maximumDate = df.date(from:"2050/12/30")
+
+//        ----キーボード非表示------
+        
+        myText1.delegate = self
+        myText2.delegate = self
+        myText3.delegate = self
+        myText4.delegate = self
+        myText5.delegate = self
+        myText6.delegate = self
+
     }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+ 
+    
+//    ------------↑-------------------
     
     
 //    -----------↓----------------------
@@ -135,27 +153,28 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
     
 //    -------↓------------------
     //　撮影が完了時した時に呼ばれる
-//        func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//    
-//            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//                cameraView.contentMode = .scaleAspectFit
-//                cameraView.image = pickedImage
-//    
-//            }
+        func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
-            //閉じる処理
-//            imagePicker.dismiss(animated: true, completion: nil)
+            if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                cameraView.contentMode = .scaleAspectFit
+                cameraView.image = pickedImage
+    
+            }
+    
+//            閉じる処理
+            imagePicker.dismiss(animated: true, completion: nil)
 //            label.text = "Tap the [Save] to save a picture"
     
-//        }
+        }
     
         // 撮影がキャンセルされた時に呼ばれる
-//        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//            picker.dismiss(animated: true, completion: nil)
+        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+            picker.dismiss(animated: true, completion: nil)
 //            label.text = "Canceled"
-//        }
+        }
 
-        // 写真を保存
+
+//        // 写真を保存の保存は記録完了ボタンを押した時に発動する
 //        @IBAction func savePic(_ sender : AnyObject) {
 //            let image:UIImage! = cameraView.image
 //    
@@ -165,7 +184,7 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
 //            else{
 ////                label.text = "image Failed !"
 //            }
-//    
+//
 //        }
     
         // 書き込み完了結果の受け取り
@@ -246,6 +265,18 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         
 //        ---------------------------
         
+//        --------カメラの写真をcoredataに送る----------
+//         写真を保存の保存は記録完了ボタンを押した時に発動する
+//                    let image:UIImage! = cameraView.image
+//        
+//                    if image != nil {
+//                        UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
+//                    }
+//                    else{
+////                        label.text = "image Failed !"
+//                    }
+
+//        ----------カメラ↑-------------------------
         
         var title = myText1.text
         var purpose = myText2.text
