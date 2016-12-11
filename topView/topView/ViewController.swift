@@ -9,8 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var myImageView: UIImageView!
 
     override func viewDidLoad() {
+        myImageView.image = UIImage(named:"033.jpg")
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }

@@ -79,6 +79,7 @@ import CoreData
 class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 //    上二つは付け足し
     
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myText1: UITextField!
     
 //    -----------
@@ -96,6 +97,8 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myImageView.image = UIImage(named:"011.jpg")
 
 //        フォーマットをyyyy/MM/ddに変更
         let df = DateFormatter()

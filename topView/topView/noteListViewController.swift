@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myTableView: UITableView!
     
     var selectedIndex = -1
@@ -22,6 +23,8 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myImageView.image = UIImage(named:"002.jpg")
         
 //        ノートデータの読み取り
        

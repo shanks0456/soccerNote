@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 
 class noteCheckViewController: UIViewController {
+    @IBOutlet weak var myImageView: UIImageView!
     
     var scSelectedIndex = -1
     var noteCheck = NSDictionary()
@@ -36,6 +37,8 @@ class noteCheckViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        myImageView.image = UIImage(named:"002.jpg")
 
         // Do any additional setup after loading the view.
     }
