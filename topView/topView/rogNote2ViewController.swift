@@ -5,79 +5,18 @@
 //  Created by 鈴木健人 on 2016/11/15.
 //  Copyright © 2016年 Kento Suzuki. All rights reserved.
 //
-//--------------カメラのサンプルアプリのコードを参考---------------
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        
-//        //        label.text = "Tap the [Start] to take a picture"
-//        
-//    }
-
-//    //　撮影が完了時した時に呼ばれる
-//    func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        
-//        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            cameraView.contentMode = .scaleAspectFit
-//            cameraView.image = pickedImage
-//            
-//        }
-//        
-//        //閉じる処理
-//        imagePicker.dismiss(animated: true, completion: nil)
-//        label.text = "Tap the [Save] to save a picture"
-//        
-//    }
-//    
-//    // 撮影がキャンセルされた時に呼ばれる
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        picker.dismiss(animated: true, completion: nil)
-//        label.text = "Canceled"
-//    }
-//    
-//    
-//    // 写真を保存
-//    @IBAction func savePic(_ sender : AnyObject) {
-//        let image:UIImage! = cameraView.image
-//        
-//        if image != nil {
-//            UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
-//        }
-//        else{
-//            label.text = "image Failed !"
-//        }
-//        
-//    }
-//    
-//    // 書き込み完了結果の受け取り
-//    func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
-//        print("1")
-//        
-//        if error != nil {
-//            print(error.code)
-//            label.text = "Save Failed !"
-//        }
-//        else{
-//            label.text = "Save Succeeded"
-//        }
-//    }
-//    
-//    
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-//    
-//}
-
-//------------------------------
 
 import UIKit
 import CoreData
+//--------先生のサンプルを基にとにかく貼り付けておく--------------
+import Photos
+import MobileCoreServices
+import AVFoundation
+//-----------------------
 
 //class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
 class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-//    上二つは付け足し
     
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var myText1: UITextField!
@@ -122,8 +61,6 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         textField.resignFirstResponder()
         return true
     }
- 
-    
 //    ------------↑-------------------
     
     
@@ -156,11 +93,60 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
             if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                
+//                先生のサンプルによると下の二つは非表示になる
                 cameraView.contentMode = .scaleAspectFit
                 cameraView.image = pickedImage
     
+                
+//   --------------ここに先生のサンプルを見ると違いがある。-------------
+////                 When taking a picture with the camera, store it in the user roll
+//                PHPhotoLibrary.shared().performChanges(
+//                    { () -> Void in
+//                        
+////                         save the image
+//                        var assetChangeRequest:PHAssetChangeRequest = PHAssetCreationRequest.creationRequestForAsset(from: pickedImage)
+//                        
+//                        
+//                        self.localID = (assetChangeRequest.placeholderForCreatedAsset?.localIdentifier)!
+//                        
+//                        print(self.localID)
+//                        
+//                        // TODO how to get the asset url
+//                        
+//            }, completionHandler:
+//                    { (finished, error) -> Void in
+//                        if (finished)
+//                        {
+//                            
+//                            
+//                            print(self.localID)
+//                            
+//                            
+//                            self.selectedUrl = "assets-library://asset/asset.JPG?id="+self.localID+"&ext=JPG"
+//                            
+//                            print(self.selectedUrl)
+//                            
+//                            //確認用
+//                            let url = URL(string: self.selectedUrl as String!)
+//                            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+//                            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+//                            let manager: PHImageManager = PHImageManager()
+//                            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+//                                self.cameraView.image = image
+//                                
+//                            }
+//                            
+//                            
+//                            
+//                        }
+//                    }
+////            謎！
+//            )
+            
+    //                -------サンプルとの違い------------------
+                
             }
-    
 //            閉じる処理
             imagePicker.dismiss(animated: true, completion: nil)
 //            label.text = "Tap the [Save] to save a picture"
@@ -174,32 +160,109 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         }
 
 
-//        // 写真を保存の保存は記録完了ボタンを押した時に発動する
+        // 写真を保存の保存は記録完了ボタンを押した時に発動する
 //        @IBAction func savePic(_ sender : AnyObject) {
 //            let image:UIImage! = cameraView.image
 //    
 //            if image != nil {
+//                
+//                if #available(iOS 9.3, *) {
+    
+//    cameraViewControllerじゃなくていいのか？アルバムのコードだから必要ない
 //                UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
-//            }
+            
+//   ------------ 先生のサンプルから持ってきたもの--------------
+//                UIImageWriteToSavedPhotosAlbum(image, self,  #selector(cameraImageSavedAsynchronously), nil)
+    
 //            else{
 ////                label.text = "image Failed !"
 //            }
-//
-//        }
+//                }
     
-        // 書き込み完了結果の受け取り
+    
+                //カメラロールで写真を選んだ後
+                //            func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+                //                let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]! as AnyObject
+                //                let strURL:String = assetURL.description
+                //                print(strURL)
+                //                // ユーザーデフォルトを用意する
+                //                myDefault = UserDefaults.standard
+                //                // データを書き込んで
+                //                comentList.add(["coment":mytextView.text,"picture":strURL])
+                //                myDefault.set(comentList, forKey: "coment")
+                //                myDefault.set(strURL, forKey: "selectedPhotoURL")
+                //                // 即反映させる
+                //                myDefault.synchronize()
+                //                //閉じる処理
+                //                imagePicker.dismiss(animated: true, completion: nil)
+                //            }
+                
+//                userDefaultの処理は必要ない
+                //userDefaultに保存する処理
+//                myDefault = UserDefaults.standard
+//                // データを書き込んで
+//                comentList.add(["coment":mytextView.text,"picture":selectedUrl])
+//                myDefault.set(comentList, forKey: "comentList")
+//                // 即反映させる
+//                myDefault.synchronize()
+//                
+//                
+//                
+                //            //閉じる処理
+                //            imagePicker.dismiss(animated: true, completion: nil)
+                //        }
+                //        else{
+                //            label.text = "保存に失敗しました"
+                
+//        }
+    //                -------------------------------
+    
+    
+//    ---------先生のサンプルから追加-------------
+//    func cameraImageSavedAsynchronously(){
+//    }
+//    
+//    func fetchLastImage(completion: (_ localIdentifier: String?) -> Void)
+//    {
+//        let fetchOptions = PHFetchOptions()
+//        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
+//        fetchOptions.fetchLimit = 1
+//        
+//        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
+//        if (fetchResult.firstObject != nil)
+//        {
+//            let lastImageAsset: PHAsset = fetchResult.firstObject!
+//            completion(lastImageAsset.localIdentifier)
+//        }
+//        else
+//        {
+//            completion(nil)
+//        }
+//    }
+    
+//    ------------------
+    
+    
+    
+    
+    
+    
+    
+    
+    
+////         書き込み完了結果の受け取り
 //        func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
 //            print("1")
 //    
 //            if error != nil {
 //                print(error.code)
-//                label.text = "Save Failed !"
-//            }
-//            else{
-//                label.text = "Save Succeeded"
-//            }
+////                label.text = "Save Failed !"
+////            }
+////            else{
+////                label.text = "Save Succeeded"
+////            }
 //        }
-        
+    
 
     
 //    --------↑-----------------
@@ -267,8 +330,8 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         
 //        --------カメラの写真をcoredataに送る----------
 //         写真を保存の保存は記録完了ボタンを押した時に発動する
-//                    let image:UIImage! = cameraView.image
-//        
+                    let image:UIImage! = cameraView.image
+        
 //                    if image != nil {
 //                        UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
 //                    }
