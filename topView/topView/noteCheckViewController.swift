@@ -8,14 +8,21 @@
 
 import UIKit
 import CoreData
+import Photos
+import MobileCoreServices
+import AVFoundation
 
 class noteCheckViewController: UIViewController, UITextFieldDelegate {
+    
+//    背景用のimage
     @IBOutlet weak var myImageView: UIImageView!
     
     var scSelectedIndex = -1
     var noteCheck = NSDictionary()
 
     @IBOutlet weak var myTitle: UITextField!
+    
+//    上のmyImageViewとの混同に注意
 //    カメラもあとでここに入る
     @IBOutlet weak var myImage: UIImageView!
     
@@ -53,7 +60,7 @@ class noteCheckViewController: UIViewController, UITextFieldDelegate {
     myImprovement.delegate = self
     myPractice.delegate = self
     
-}
+    }
 
 func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.resignFirstResponder()
@@ -73,14 +80,14 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         myTitle.text = noteCheck["titleCheck"] as! String
 //        カメラのコードが入るかもしれない
 //        myPurpose.text = noteCheck["purposeCheck"] as! String
-        //確認用
-//        let url = URL(string: image as String!)
-//        let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-//        let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
-//        let manager: PHImageManager = PHImageManager()
-//        manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
-//            self.myImage.image = image
-
+//        確認用
+        let url = URL(string: noteCheck["imageCheck"] as! String!)
+        let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+        let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+        let manager: PHImageManager = PHImageManager()
+        manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+            self.myImage.image = image
+            }
 
         
         myPurpose.text = noteCheck["purposeCheck"] as! String
@@ -96,7 +103,9 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         print(noteCheck)
         
-    }
+        
+        }
+    
     
 //    ------------↓編集機能--------------------
     @IBAction func editButton(_ sender: UIButton) {
@@ -218,3 +227,4 @@ override func didReceiveMemoryWarning() {
     */
 
 }
+

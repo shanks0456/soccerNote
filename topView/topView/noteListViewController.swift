@@ -57,9 +57,10 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     
                     noteList.add(
                         
-//                        カメラ追加したパターン。["title":title,"image":image,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
-                        ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
-                    
+//                        カメラ追加したパターン。
+                        ["title":title,"image":image,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
+//                        ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
+//                    
                 }
             } catch {
             }
@@ -113,7 +114,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
             
 //            カメラのを追加したパターン
-//            var image = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["image"] as! String
+            var image = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["image"] as! String
             
             
             var purpose = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["purpose"] as! String
@@ -126,12 +127,13 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
 
-//            noteCheck =
-//                ["titleCheck":title,"imageCheck":image,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
-            
+//            カメラ用コード
             noteCheck =
-                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
+                ["titleCheck":title,"imageCheck":image,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
             
+//            noteCheck =
+//                ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
+//            
 //            print(noteCheck)
             
     
