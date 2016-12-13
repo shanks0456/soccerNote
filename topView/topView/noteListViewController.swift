@@ -37,6 +37,10 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 for result: AnyObject in fetchResults {
                     
                     let title: String? = result.value(forKey: "title") as? String
+                    
+                    //    ------------カメラのための追加コード------------------
+                    let image: String? = result.value(forKey: "image") as? String
+                    
                     let purpose: String? = result.value(forKey: "purpose") as? String
                     let good: String? = result.value(forKey: "good") as? String
                     let bad: String? = result.value(forKey: "bad") as? String
@@ -45,10 +49,15 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
 
                     let start: String? = result.value(forKey: "start") as? String
                     let end: String? = result.value(forKey: "end") as? String
+                    
+
+
 
                     let created_at: Date? = result.value(forKey: "created_at") as? Date
                     
                     noteList.add(
+                        
+//                        カメラ追加したパターン。["title":title,"image":image,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
                         ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
                     
                 }
@@ -103,6 +112,10 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             var title = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["title"] as! String
             
+//            カメラのを追加したパターン
+//            var image = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["image"] as! String
+            
+            
             var purpose = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["purpose"] as! String
             
             var good = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["good"] as! String
@@ -113,6 +126,9 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             
             var practice = (noteList[(indexPath as NSIndexPath).row] as! NSDictionary)["practice"] as! String
 
+//            noteCheck =
+//                ["titleCheck":title,"imageCheck":image,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
+            
             noteCheck =
                 ["titleCheck":title,"purposeCheck":purpose,"goodCheck":good,"badCheck":bad,"improvementCheck":improvement,"practiceCheck":practice,"created_atCheck":created_at]
             

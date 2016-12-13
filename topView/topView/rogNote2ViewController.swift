@@ -100,49 +100,41 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
     
                 
 //   --------------ここに先生のサンプルを見ると違いがある。-------------
-////                 When taking a picture with the camera, store it in the user roll
-//                PHPhotoLibrary.shared().performChanges(
-//                    { () -> Void in
-//                        
-////                         save the image
-//                        var assetChangeRequest:PHAssetChangeRequest = PHAssetCreationRequest.creationRequestForAsset(from: pickedImage)
-//                        
-//                        
-//                        self.localID = (assetChangeRequest.placeholderForCreatedAsset?.localIdentifier)!
-//                        
-//                        print(self.localID)
-//                        
-//                        // TODO how to get the asset url
-//                        
-//            }, completionHandler:
-//                    { (finished, error) -> Void in
-//                        if (finished)
-//                        {
-//                            
-//                            
-//                            print(self.localID)
-//                            
-//                            
-//                            self.selectedUrl = "assets-library://asset/asset.JPG?id="+self.localID+"&ext=JPG"
-//                            
-//                            print(self.selectedUrl)
-//                            
-//                            //確認用
-//                            let url = URL(string: self.selectedUrl as String!)
-//                            let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
-//                            let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
-//                            let manager: PHImageManager = PHImageManager()
-//                            manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
-//                                self.cameraView.image = image
-//                                
-//                            }
-//                            
-//                            
-//                            
-//                        }
-//                    }
-////            謎！
-//            )
+//                 When taking a picture with the camera, store it in the user roll
+                PHPhotoLibrary.shared().performChanges(
+                    { () -> Void in
+                        
+//                         save the image
+                        var assetChangeRequest:PHAssetChangeRequest = PHAssetCreationRequest.creationRequestForAsset(from: pickedImage)
+                        
+                        
+                        self.localID = (assetChangeRequest.placeholderForCreatedAsset?.localIdentifier)!
+                        
+                        print(self.localID)
+                        
+                        // TODO how to get the asset url
+                        
+            }, completionHandler:
+                    { (finished, error) -> Void in
+                        if (finished)
+                        {
+                            
+                            
+                            print(self.localID)
+                            
+                            
+                            self.selectedUrl = "assets-library://asset/asset.JPG?id="+self.localID+"&ext=JPG"
+                            
+                            print(self.selectedUrl)
+                            
+                    
+                            
+                            
+                            
+                        }
+                    }
+//            謎！
+            )
             
     //                -------サンプルとの違い------------------
                 
@@ -172,83 +164,7 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
 //                UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
             
 //   ------------ 先生のサンプルから持ってきたもの--------------
-//                UIImageWriteToSavedPhotosAlbum(image, self,  #selector(cameraImageSavedAsynchronously), nil)
-    
-//            else{
-////                label.text = "image Failed !"
-//            }
-//                }
-    
-    
-                //カメラロールで写真を選んだ後
-                //            func imagePickerController(_ imagePicker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-                //                let assetURL:AnyObject = info[UIImagePickerControllerReferenceURL]! as AnyObject
-                //                let strURL:String = assetURL.description
-                //                print(strURL)
-                //                // ユーザーデフォルトを用意する
-                //                myDefault = UserDefaults.standard
-                //                // データを書き込んで
-                //                comentList.add(["coment":mytextView.text,"picture":strURL])
-                //                myDefault.set(comentList, forKey: "coment")
-                //                myDefault.set(strURL, forKey: "selectedPhotoURL")
-                //                // 即反映させる
-                //                myDefault.synchronize()
-                //                //閉じる処理
-                //                imagePicker.dismiss(animated: true, completion: nil)
-                //            }
-                
-//                userDefaultの処理は必要ない
-                //userDefaultに保存する処理
-//                myDefault = UserDefaults.standard
-//                // データを書き込んで
-//                comentList.add(["coment":mytextView.text,"picture":selectedUrl])
-//                myDefault.set(comentList, forKey: "comentList")
-//                // 即反映させる
-//                myDefault.synchronize()
-//                
-//                
-//                
-                //            //閉じる処理
-                //            imagePicker.dismiss(animated: true, completion: nil)
-                //        }
-                //        else{
-                //            label.text = "保存に失敗しました"
-                
-//        }
-    //                -------------------------------
-    
-    
-//    ---------先生のサンプルから追加-------------
-//    func cameraImageSavedAsynchronously(){
-//    }
-//    
-//    func fetchLastImage(completion: (_ localIdentifier: String?) -> Void)
-//    {
-//        let fetchOptions = PHFetchOptions()
-//        fetchOptions.sortDescriptors = [NSSortDescriptor(key: "creationDate", ascending: false)]
-//        fetchOptions.fetchLimit = 1
-//        
-//        let fetchResult = PHAsset.fetchAssets(with: .image, options: fetchOptions)
-//        if (fetchResult.firstObject != nil)
-//        {
-//            let lastImageAsset: PHAsset = fetchResult.firstObject!
-//            completion(lastImageAsset.localIdentifier)
-//        }
-//        else
-//        {
-//            completion(nil)
-//        }
-//    }
-    
-//    ------------------
-    
-    
-    
-    
-    
-    
-    
-    
+
     
 ////         書き込み完了結果の受け取り
 //        func image(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
@@ -330,7 +246,7 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         
 //        --------カメラの写真をcoredataに送る----------
 //         写真を保存の保存は記録完了ボタンを押した時に発動する
-                    let image:UIImage! = cameraView.image
+//                    let image:UIImage! = cameraView.image
         
 //                    if image != nil {
 //                        UIImageWriteToSavedPhotosAlbum(image, self, #selector(ViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -359,6 +275,9 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         
         
         newRecord.setValue(myText1.text, forKey: "title") //値を代入
+        //        カメラの追加コード
+        newRecord.setValue(selectedUrl, forKey: "image") //値を代入
+        
         newRecord.setValue(myText2.text, forKey: "purpose") //値を代入
         newRecord.setValue(myText3.text, forKey: "good") //値を代入
         newRecord.setValue(myText4.text, forKey: "bad") //値を代入
@@ -366,6 +285,8 @@ class rogNote2ViewController: UIViewController, UIImagePickerControllerDelegate,
         newRecord.setValue(myText6.text, forKey: "practice") //値を代入
         newRecord.setValue(start, forKey: "start") //値を代入
         newRecord.setValue(end, forKey: "end") //値を代入
+        
+
         
 //        ----上の続きでタイムゾーンの設定-----
 //        newRecord.setValue(Date(), forKey: "created_at")//値を代入

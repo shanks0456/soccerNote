@@ -17,6 +17,9 @@ class noteCheckViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var myTitle: UITextField!
 //    カメラもあとでここに入る
+    @IBOutlet weak var myImage: UIImageView!
+    
+    
     @IBOutlet weak var myPurpose: UITextField!
     @IBOutlet weak var myGood: UITextField!
     @IBOutlet weak var myBad: UITextField!
@@ -68,6 +71,18 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         var created_atEdit = noteCheck["created_atCheck"] as! String
         
         myTitle.text = noteCheck["titleCheck"] as! String
+//        カメラのコードが入るかもしれない
+//        myPurpose.text = noteCheck["purposeCheck"] as! String
+        //確認用
+//        let url = URL(string: image as String!)
+//        let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
+//        let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
+//        let manager: PHImageManager = PHImageManager()
+//        manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
+//            self.myImage.image = image
+
+
+        
         myPurpose.text = noteCheck["purposeCheck"] as! String
         myGood.text = noteCheck["goodCheck"] as! String
         myBad.text = noteCheck["badCheck"] as! String

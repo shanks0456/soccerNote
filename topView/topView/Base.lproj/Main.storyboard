@@ -795,6 +795,7 @@
                         <outlet property="myBad" destination="KVG-n1-Bdd" id="0Ty-yS-Al5"/>
                         <outlet property="myCreated_at" destination="Vbq-9l-afq" id="KRo-pX-Je5"/>
                         <outlet property="myGood" destination="tIr-Jg-Lkp" id="uwn-lI-IcC"/>
+                        <outlet property="myImage" destination="KYO-qO-bxC" id="jTP-A9-yb1"/>
                         <outlet property="myImageView" destination="hk1-Re-ieW" id="7tt-eN-UfI"/>
                         <outlet property="myImprovement" destination="RBL-sH-xkM" id="Ju7-j5-jZi"/>
                         <outlet property="myPractice" destination="sMA-35-3Vo" id="SkW-c0-fBK"/>
