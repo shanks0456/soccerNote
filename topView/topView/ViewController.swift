@@ -11,13 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var myImageView: UIImageView!
     
-    @IBOutlet weak var btnRecord: UIButton!
-    @IBOutlet weak var btnList: UIButton!
-    //    --------autolayoutのコード↓------------------
-//    let record = UIView(frame: CGRectZero)
-//    let list = UIView(frame: CGRectZero)
-//    
-    //    ----------aoutolayoutのコード↑---------------
 
     override func viewDidLoad() {
         myImageView.image = UIImage(named:"033.jpg")

@@ -32,6 +32,7 @@
 		D7078DA01DD9F817006FEC33 /* topViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078D9F1DD9F817006FEC33 /* topViewUITests.swift */; };
 		D7078E641DDAAB83006FEC33 /* rogNote2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */; };
 		D7078F7E1DDEA62E006FEC33 /* myData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7078F7C1DDEA62E006FEC33 /* myData.xcdatamodeld */; };
+		D7176D571E01B50A00E1738C /* noimage.png in Resources */ = {isa = PBXBuildFile; fileRef = D7176D561E01B50A00E1738C /* noimage.png */; };
 		D756EED31DEBC92900DCEC1F /* improvementListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */; };
 		D756EED51DEBD78B00DCEC1F /* noteCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */; };
 		D756EED91DEEF19A00DCEC1F /* improvementCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */; };
@@ -90,6 +91,7 @@
 		D7078DA11DD9F817006FEC33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7078E631DDAAB83006FEC33 /* rogNote2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rogNote2ViewController.swift; sourceTree = "<group>"; };
 		D7078F7D1DDEA62E006FEC33 /* myData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myData.xcdatamodel; sourceTree = "<group>"; };
+		D7176D561E01B50A00E1738C /* noimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = noimage.png; sourceTree = "<group>"; };
 		D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = improvementListViewController.swift; sourceTree = "<group>"; };
 		D756EED41DEBD78B00DCEC1F /* noteCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = noteCheckViewController.swift; sourceTree = "<group>"; };
 		D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = improvementCheckViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				D70282CF1DFC4F7200768013 /* 023.jpg */,
 				D70282D11DFC4F9100768013 /* 028.jpg */,
 				D70282D71DFC5DD100768013 /* 030.jpg */,
+				D7176D561E01B50A00E1738C /* noimage.png */,
 				D756EED21DEBC92900DCEC1F /* improvementListViewController.swift */,
 				D756EED81DEEF19A00DCEC1F /* improvementCheckViewController.swift */,
 				D756EEDA1DEFB97D00DCEC1F /* evaluationViewController.swift */,
@@ -318,6 +321,7 @@
 				D70282E21DFC8E1600768013 /* 001.jpg in Resources */,
 				D70282CE1DFC4F6700768013 /* 010.jpg in Resources */,
 				D70282C81DFC4F4800768013 /* 032.jpg in Resources */,
+				D7176D571E01B50A00E1738C /* noimage.png in Resources */,
 				D70282D81DFC5DD100768013 /* 030.jpg in Resources */,
 				D70282C21DFC4F2900768013 /* 011.jpg in Resources */,
 				D70282C41DFC4F3400768013 /* 012.jpg in Resources */,
