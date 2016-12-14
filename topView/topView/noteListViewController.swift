@@ -71,24 +71,17 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 }
                 
                 //    ------リスト並べ替え↓-------------------
-                
+//                
 //                let sortDescription = NSSortDescriptor(key: "created_at", ascending: false)
 //                let sortDescAry = [sortDescription]
 //                
+//
+//                var noteListTmp: NSArray = self.noteList as! NSArray
 //                
-//                noteList = noteList:NSArray
+//                noteList = noteListTmp.sortedArray(using: sortDescAry) as Array
 //                
-//                noteList = noteList.sortedArray(using: sortDescAry) as NSArray
-                
-                
-//                ボツ
-//                noteList = (noteList as NSArray).sortedArray(using: sortDescAry)
-                
-
-//                参考
-//                var diaryListTmp:NSMutableArray = myDefault.object(forKey:"diaryList") as!NSMutableArray
-//                diaryList = diaryListTmp.mutableCopy() as!NSMutableArray
-                
+//                
+            
                 
                 //        print(lunchMenu)
                 
