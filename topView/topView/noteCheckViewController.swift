@@ -14,6 +14,8 @@ import AVFoundation
 
 class noteCheckViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
 //    背景用のimage
     @IBOutlet weak var myImageView: UIImageView!
     
@@ -82,12 +84,21 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
 //        myPurpose.text = noteCheck["purposeCheck"] as! String
 //        確認用
         let url = URL(string: noteCheck["imageCheck"] as! String!)
+        
+        if url != nil {
+            
         let fetchResult: PHFetchResult = PHAsset.fetchAssets(withALAssetURLs: [url!], options: nil)
         let asset: PHAsset = (fetchResult.firstObject! as PHAsset)
         let manager: PHImageManager = PHImageManager()
         manager.requestImage(for: asset,targetSize: CGSize(width: 5, height: 500),contentMode: .aspectFill,options: nil) { (image, info) -> Void in
             self.myImage.image = image
             }
+            
+        
+            
+        }else{
+            print ("no image")
+        }
 
         
         myPurpose.text = noteCheck["purposeCheck"] as! String
@@ -109,6 +120,25 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     
 //    ------------↓編集機能--------------------
     @IBAction func editButton(_ sender: UIButton) {
+        
+//        -----アラートの追加--↓----
+        //        アラートを作る
+        var alertController = UIAlertController (title: "確認", message:"編集を完了してもよろしいですか？", preferredStyle: .alert)
+        
+        //        OKボタンを追加
+        alertController.addAction(UIAlertAction (title:"編集完了", style: .default, handler: {action in self.myOK()}))
+        
+        //        キャンセルボタンを追加
+        alertController.addAction(UIAlertAction(title:"キャンセル", style: .cancel, handler: {action in self.myOK()}))
+        
+        //        アラートを表示する(重要)
+        present(alertController, animated: true, completion: nil)
+        
+        
+//        --------アラートの追加↑--------------
+        
+        
+        
         var titleEdit = myTitle.text
         var purposeEdit = myPurpose.text
         var goodEdit = myGood.text
@@ -195,14 +225,34 @@ func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         } catch {
         }
         
+        //        トップページに戻るコードを書く
+
+        navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+        
     }
     
     
+    
 // ----------編集機能↑------------------
-
+    
+    
 @IBAction func myButton(_ sender: UIButton) {
-    //        トップページに戻るコードを書く
+
+    
     navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+}
+
+    //    OKボタンが押された時に呼ばれるメソッド
+    func myOK(){
+        print("編集完了")
+        
+        //        トップページに戻るコードを書く
+        navigationController?.popToViewController(navigationController!.viewControllers[0], animated: true)
+    }
+    
+    //    キャンセルボタンが押された時に呼ばれるメソッド
+    func myCancel() {
+        print("キャンセル")
     }
 
 

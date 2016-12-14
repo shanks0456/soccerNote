@@ -18,6 +18,7 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     var noteCheck = NSDictionary()
     
     
+    
     //    ノート配列の用意
     var noteList = NSMutableArray()
     
@@ -57,11 +58,46 @@ class noteListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                     
                     noteList.add(
                         
+                        
+                        
 //                        カメラ追加したパターン。
                         ["title":title,"image":image,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
-//                        ["title":title,"purpose":purpose,"good":good,"bad":bad,"improvement":improvement,"practice":practice,"start":start,"end":end,"created_at":created_at])
-//                    
+
+                    
+                    
+                    
+                    
+                    
                 }
+                
+                //    ------リスト並べ替え↓-------------------
+                
+//                let sortDescription = NSSortDescriptor(key: "created_at", ascending: false)
+//                let sortDescAry = [sortDescription]
+//                
+//                
+//                noteList = noteList:NSArray
+//                
+//                noteList = noteList.sortedArray(using: sortDescAry) as NSArray
+                
+                
+//                ボツ
+//                noteList = (noteList as NSArray).sortedArray(using: sortDescAry)
+                
+
+//                参考
+//                var diaryListTmp:NSMutableArray = myDefault.object(forKey:"diaryList") as!NSMutableArray
+//                diaryList = diaryListTmp.mutableCopy() as!NSMutableArray
+                
+                
+                //        print(lunchMenu)
+                
+                
+                
+                
+                //    -------リスト並べ替え↑---------------------
+
+                
             } catch {
             }
     }
